@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Fixed.Net\Fixed.csproj" />
+    <ProjectReference Include="..\Fixed.Net\Fixed.Net.csproj" />
   </ItemGroup>
 
 </Project>
