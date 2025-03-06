@@ -6,8 +6,27 @@ namespace Test
     /// <summary>
     /// 
     /// </summary>
-    internal abstract class BaseTest<T> where T : IFixed<T>
+    interface ITest
     {
+        void Run();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    internal class TestAttribute : Attribute
+    {
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    internal abstract class BaseTest<T> : ITest where T : IFixed<T>
+    {
+        private const float  SINGLE_PRECISION = 0.00001f;
+        private const double DOUBLE_PRECISION = 0.00001;
+
         /// <summary>
         /// 
         /// </summary>
@@ -32,7 +51,7 @@ namespace Test
         protected void Assert(T a, float b)
         {
             var delta = Math.Abs(a.ToFloat() - b);
-            Debug.Assert(delta <= 0.00001f);
+            Debug.Assert(delta <= SINGLE_PRECISION);
         }
 
         /// <summary>
@@ -43,7 +62,7 @@ namespace Test
         protected void Assert(T a, double b)
         {
             var delta = Math.Abs(a.ToDouble() - b);
-            Debug.Assert(delta <= 0.0000001);
+            Debug.Assert(delta <= DOUBLE_PRECISION);
         }
     }
 }
