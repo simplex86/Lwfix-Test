@@ -25,6 +25,8 @@ namespace Test
             Assert(Fixed32.MaxValue, MaxValue);
             Assert(Fixed32.MinValue, MinValue);
             Assert(Fixed32.PI, PI);
+            Assert(Fixed32.Half_PI, PI / 2);
+            Assert(Fixed32.Two_PI, PI * 2);
             Assert(Fixed32.E, E);
             Assert(Fixed32.LN2, LN2);
             Assert(Fixed32.LN10, LN10);
