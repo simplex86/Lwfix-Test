@@ -24,7 +24,7 @@ namespace Test
     /// </summary>
     internal abstract class BaseTest<T> : ITest where T : IFixed<T>
     {
-        private const float  SINGLE_PRECISION = 0.0001f;
+        private const float  SINGLE_PRECISION = 0.00001f;
         private const double DOUBLE_PRECISION = SINGLE_PRECISION;
 
         /// <summary>

@@ -3,7 +3,7 @@
 namespace Test
 {
     [Test]
-    internal class Triangle : BaseTest<Fixed32>
+    internal class TCos : BaseTest<Fixed32>
     {
         private const int LOOP_TIMES =  100;
         private const int MIN_NUMBER = -3600;
@@ -17,13 +17,6 @@ namespace Test
                 var f1 = new Fixed32(n1);
                 var r1 = (n1 / 180) * Math.PI;
                 var r2 = Mathf.DegreeToRadian(f1);
-
-                var s1 = Math.Sin(r1);
-                var s2 = Mathf.Sin(r2);
-                var s3 = Mathf.FastSin(r2);
-
-                Assert(s2, s1);
-                Assert(s3, s1);
 
                 var c1 = Math.Cos(r1);
                 var c2 = Mathf.Cos(r2);

@@ -3,11 +3,11 @@
 namespace Test
 {
     [Test]
-    internal class TMul : BaseTest<Fixed32>
+    internal class TMod : BaseTest<Fixed32>
     {
         private const int LOOP_TIMES =  100;
-        private const int MIN_NUMBER = -10000;
-        private const int MAX_NUMBER =  10000;
+        private const int MIN_NUMBER = -1000000;
+        private const int MAX_NUMBER =  1000000;
 
         public override void Run()
         {
@@ -27,9 +27,9 @@ namespace Test
                 var f5 = new Fixed32(n5);
                 var f6 = new Fixed32(n6);
 
-                Assert(f1 * f2, n1 * n2);
-                Assert(f3 * f4, n3 * n4);
-                Assert(f5 * f6, n5 * n6);
+                Assert(f1 % f2, n1 % n2);
+                Assert(f3 % f4, n3 % n4);
+                Assert(f5 % f6, n5 % n6);
             }
         }
     }

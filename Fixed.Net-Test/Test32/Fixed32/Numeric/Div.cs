@@ -3,7 +3,7 @@
 namespace Test
 {
     [Test]
-    internal class Div : BaseTest<Fixed32>
+    internal class TDiv : BaseTest<Fixed32>
     {
         private const int LOOP_TIMES =  100;
         private const int MIN_NUMBER = -1000000;

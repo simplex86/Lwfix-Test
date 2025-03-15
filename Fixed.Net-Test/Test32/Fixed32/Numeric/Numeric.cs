@@ -3,7 +3,7 @@
 namespace Test
 {
     [Test]
-    internal class Numeric : BaseTest<Fixed32>
+    internal class TNumeric : BaseTest<Fixed32>
     {
         private const int LOOP_TIMES = 100;
 

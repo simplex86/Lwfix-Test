@@ -3,7 +3,7 @@
 namespace Test
 {
     [Test]
-    internal class Const : BaseTest<Fixed32>
+    internal class TConst : BaseTest<Fixed32>
     {
         private static readonly int Zero = 0;
         private static readonly int One = 1;
