@@ -27,9 +27,9 @@ namespace Test
                 //var f5 = new Fixed32(n5);
                 //var f6 = new Fixed32(n6);
 
-                //Assert(Mathf.Pow(f1, f2), Math.Pow(n1, n2));
-                //Assert(Mathf.Pow(f3, f4), Math.Pow(n3, n4));
-                //Assert(Mathf.Pow(f5, f6), Math.Pow(n5, n6));
+                //Assert(Fixed32.Pow(f1, f2), Math.Pow(n1, n2));
+                //Assert(Fixed32.Pow(f3, f4), Math.Pow(n3, n4));
+                //Assert(Fixed32.Pow(f5, f6), Math.Pow(n5, n6));
             }
         }
     }

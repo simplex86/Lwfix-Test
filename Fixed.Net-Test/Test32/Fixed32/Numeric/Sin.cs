@@ -16,11 +16,11 @@ namespace Test
                 var n1 = Random.Shared.NextSingle() * Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
                 var f1 = new Fixed32(n1);
                 var r1 = (n1 / 180) * Math.PI;
-                var r2 = Mathf.DegreeToRadian(f1);
+                var r2 = Fixed32.DegreeToRadian(f1);
 
                 var s1 = Math.Sin(r1);
-                var s2 = Mathf.Sin(r2);
-                var s3 = Mathf.FastSin(r2);
+                var s2 = Fixed32.Sin(r2);
+                var s3 = Fixed32.FastSin(r2);
 
                 Assert(s2, s1);
                 Assert(s3, s1);

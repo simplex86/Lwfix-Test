@@ -27,44 +27,44 @@ namespace Test
                 var f5 = new Fixed32(n5);
                 var f6 = new Fixed32(n6);
 
-                Assert(Mathf.Abs(f1), Math.Abs(n1));
-                Assert(Mathf.Abs(f2), Math.Abs(n2));
-                Assert(Mathf.Abs(f3), Math.Abs(n3));
-                Assert(Mathf.Abs(f4), Math.Abs(n4));
-                Assert(Mathf.Abs(f5), Math.Abs(n5));
-                Assert(Mathf.Abs(f6), Math.Abs(n6));
+                Assert(Fixed32.Abs(f1), Math.Abs(n1));
+                Assert(Fixed32.Abs(f2), Math.Abs(n2));
+                Assert(Fixed32.Abs(f3), Math.Abs(n3));
+                Assert(Fixed32.Abs(f4), Math.Abs(n4));
+                Assert(Fixed32.Abs(f5), Math.Abs(n5));
+                Assert(Fixed32.Abs(f6), Math.Abs(n6));
 
-                Assert(Mathf.Min(f1, f2), Math.Min(n1, n2));
-                Assert(Mathf.Min(f3, f4), Math.Min(n3, n4));
-                Assert(Mathf.Min(f5, f6), Math.Min(n5, n6));
+                Assert(Fixed32.Min(f1, f2), Math.Min(n1, n2));
+                Assert(Fixed32.Min(f3, f4), Math.Min(n3, n4));
+                Assert(Fixed32.Min(f5, f6), Math.Min(n5, n6));
 
-                Assert(Mathf.Max(f1, f2), Math.Max(n1, n2));
-                Assert(Mathf.Max(f3, f4), Math.Max(n3, n4));
-                Assert(Mathf.Max(f5, f6), Math.Max(n5, n6));
+                Assert(Fixed32.Max(f1, f2), Math.Max(n1, n2));
+                Assert(Fixed32.Max(f3, f4), Math.Max(n3, n4));
+                Assert(Fixed32.Max(f5, f6), Math.Max(n5, n6));
 
-                Assert(Mathf.Floor(f3), Math.Floor(n3));
-                Assert(Mathf.Floor(f4), Math.Floor(n4));
-                Assert(Mathf.Floor(f5), Math.Floor(n5));
-                Assert(Mathf.Floor(f6), Math.Floor(n6));
+                Assert(Fixed32.Floor(f3), Math.Floor(n3));
+                Assert(Fixed32.Floor(f4), Math.Floor(n4));
+                Assert(Fixed32.Floor(f5), Math.Floor(n5));
+                Assert(Fixed32.Floor(f6), Math.Floor(n6));
 
-                Assert(Mathf.Ceil(f3), Math.Ceiling(n3));
-                Assert(Mathf.Ceil(f4), Math.Ceiling(n4));
-                Assert(Mathf.Ceil(f5), Math.Ceiling(n5));
-                Assert(Mathf.Ceil(f6), Math.Ceiling(n6));
+                Assert(Fixed32.Ceil(f3), Math.Ceiling(n3));
+                Assert(Fixed32.Ceil(f4), Math.Ceiling(n4));
+                Assert(Fixed32.Ceil(f5), Math.Ceiling(n5));
+                Assert(Fixed32.Ceil(f6), Math.Ceiling(n6));
 
-                Assert(Mathf.Round(f3), Math.Round(n3));
-                Assert(Mathf.Round(f4), Math.Round(n4));
-                Assert(Mathf.Round(f5), Math.Round(n5));
-                Assert(Mathf.Round(f6), Math.Round(n6));
+                Assert(Fixed32.Round(f3), Math.Round(n3));
+                Assert(Fixed32.Round(f4), Math.Round(n4));
+                Assert(Fixed32.Round(f5), Math.Round(n5));
+                Assert(Fixed32.Round(f6), Math.Round(n6));
 
-                Assert(Mathf.Reciprocal(f3), 1 / n3);
-                Assert(Mathf.Reciprocal(f4), 1 / n4);
-                Assert(Mathf.Reciprocal(f5), 1 / n5);
-                Assert(Mathf.Reciprocal(f6), 1 / n6);
+                Assert(Fixed32.Reciprocal(f3), 1 / n3);
+                Assert(Fixed32.Reciprocal(f4), 1 / n4);
+                Assert(Fixed32.Reciprocal(f5), 1 / n5);
+                Assert(Fixed32.Reciprocal(f6), 1 / n6);
 
-                Assert(Mathf.Sqrt(f2), Math.Sqrt(n2));
-                Assert(Mathf.Sqrt(f4), Math.Sqrt(n4));
-                Assert(Mathf.Sqrt(f6), Math.Sqrt(n6));
+                Assert(Fixed32.Sqrt(f2), Math.Sqrt(n2));
+                Assert(Fixed32.Sqrt(f4), Math.Sqrt(n4));
+                Assert(Fixed32.Sqrt(f6), Math.Sqrt(n6));
             }
         }
     }
