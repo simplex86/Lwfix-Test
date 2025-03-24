@@ -29,8 +29,6 @@ namespace Test
                 Assert(f3 - f4, n3 - n4);
             }
 
-            Console.WriteLine(float.PositiveInfinity - float.PositiveInfinity);
-
             // 边界检验 - NaN、最值、极值
             for (int i = 0; i < LOOP_TIMES; i++)
             {
