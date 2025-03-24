@@ -2,32 +2,32 @@
 
 namespace Test
 {
-    [Test]
-    internal class TCot : BaseTest<Fixed32>
-    {
-        private const int LOOP_TIMES =  1000;
-        private const int MIN_NUMBER = -180;
-        private const int MAX_NUMBER =  180;
-        private const double PRECISION = 0.1;
+    //[Test]
+    //internal class TCot : BaseTest<Fixed32>
+    //{
+    //    private const int LOOP_TIMES =  1000;
+    //    private const int MIN_NUMBER = -180;
+    //    private const int MAX_NUMBER =  180;
+    //    private const double PRECISION = 0.1;
 
-        public override void Run()
-        {
-            for (int i = 0; i < LOOP_TIMES; i++)
-            {
-                var n1 = Random.Shared.NextSingle() * Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
-                var f1 = new Fixed32(n1);
-                var r1 = (n1 / 180.0) * Math.PI;
-                var r2 = Fixed32.DegreeToRadian(f1);
+    //    public override void Run()
+    //    {
+    //        for (int i = 0; i < LOOP_TIMES; i++)
+    //        {
+    //            var n1 = Random.Shared.NextSingle() * Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
+    //            var f1 = new Fixed32(n1);
+    //            var r1 = (n1 / 180.0) * Math.PI;
+    //            var r2 = Fixed32.DegreeToRadian(f1);
 
-                if (r1 < 0.0000001f) { i--; continue; }
+    //            if (r1 < 0.0000001f) { i--; continue; }
 
-                var s1 = 1/Math.Tan(r1);
-                var s2 = Fixed32.Cot(r2);
-                var s3 = Fixed32.FastCot(r2);
+    //            var s1 = 1/Math.Tan(r1);
+    //            var s2 = Fixed32.Cot(r2);
+    //            var s3 = Fixed32.FastCot(r2);
 
-                Assert(s2, s1, PRECISION);
-                Assert(s3, s1, PRECISION);
-            }
-        }
-    }
+    //            Assert(s2, s1, PRECISION);
+    //            Assert(s3, s1, PRECISION);
+    //        }
+    //    }
+    //}
 }

@@ -87,5 +87,15 @@ namespace Test
             var delta = Math.Abs(a.ToFloat() - b);
             Debug.Assert(delta <= precision);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        protected void Assert(bool a, bool b)
+        {
+            Debug.Assert(a == b);
+        }
     }
 }
