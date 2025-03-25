@@ -32,36 +32,48 @@ namespace Test
             // 边界检验 - NaN、最值、极值
             for (int i = 0; i < LOOP_TIMES; i++)
             {
-                var p = Random.Shared.Next(1, int.MaxValue); // 正
-                var n = Random.Shared.Next(int.MinValue, 0); // 负
-                var k = Random.Shared.Next(int.MinValue, int.MaxValue); // 任意
+                var d = Random.Shared.NextDouble();
+                var p = Random.Shared.Next(1, int.MaxValue); // 正整数
+                var n = Random.Shared.Next(int.MinValue, 0); // 负整数
+                var k = Random.Shared.Next(int.MinValue, int.MaxValue); // 任意整数
+
+                var u = new Fixed32(p * d); // 正
+                var v = new Fixed32(n * d); // 负
+                var w = new Fixed32(k * d); // 任意
 
                 // NaN加上任何数，都等于NaN
                 Assert(Fixed32.IsNaN(Fixed32.NaN + k), float.IsNaN(float.NaN + k));
+                Assert(Fixed32.IsNaN(Fixed32.NaN + w), float.IsNaN(float.NaN + k));
                 // 正无穷加上负无穷，等于NaN
                 Assert(Fixed32.IsNaN(Fixed32.PositiveInfinity + Fixed32.NegativeInfinity), float.IsNaN(float.PositiveInfinity + float.NegativeInfinity));
 
                 // 正无穷加上任何数，都等于正无穷
                 Assert(Fixed32.IsPositiveInfinity(Fixed32.PositiveInfinity + k), float.IsPositiveInfinity(float.PositiveInfinity + k));
+                Assert(Fixed32.IsPositiveInfinity(Fixed32.PositiveInfinity + w), float.IsPositiveInfinity(float.PositiveInfinity + k));
                 // 负无穷加上任何数，都等于负无穷
                 Assert(Fixed32.IsNegativeInfinity(Fixed32.NegativeInfinity + k), float.IsNegativeInfinity(float.NegativeInfinity + k));
+                Assert(Fixed32.IsNegativeInfinity(Fixed32.NegativeInfinity + w), float.IsNegativeInfinity(float.NegativeInfinity + k));
 
                 // 最大值加上任何正数，等于正无穷
                 Assert(Fixed32.IsPositiveInfinity(Fixed32.MaxValue + p), true);
+                Assert(Fixed32.IsPositiveInfinity(Fixed32.MaxValue + u), true);
                 // 最大值加上任何负数，不等于正无穷
                 Assert(Fixed32.IsPositiveInfinity(Fixed32.MaxValue + n), false);
+                Assert(Fixed32.IsPositiveInfinity(Fixed32.MaxValue + v), false);
                 // 最小值加上任何正数，不等于负无穷
                 Assert(Fixed32.IsNegativeInfinity(Fixed32.MinValue + p), false);
+                Assert(Fixed32.IsNegativeInfinity(Fixed32.MinValue + u), false);
                 // 最小值加上任何负数，等于负无穷
                 Assert(Fixed32.IsNegativeInfinity(Fixed32.MinValue + n), true);
+                Assert(Fixed32.IsNegativeInfinity(Fixed32.MinValue + v), true);
 
                 // 负数相加后溢出
                 var a1 = Fixed32.MinValue / 2;
-                var a2 = Fixed32.MinValue / 2 + n;
+                var a2 = Fixed32.MinValue / 2 + v;
                 Assert(Fixed32.IsNegativeInfinity(a1 + a2), true);
                 // 正数相加后溢出
                 var a3 = Fixed32.MaxValue / 2;
-                var a4 = Fixed32.MaxValue / 2 + p;
+                var a4 = Fixed32.MaxValue / 2 + u;
                 Assert(Fixed32.IsPositiveInfinity(a3 + a4), true);
             }
         }
