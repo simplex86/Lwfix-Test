@@ -5,7 +5,7 @@ namespace Test
     [Test]
     internal class TSub : BaseTest<Fixed32>
     {
-        private const int LOOP_TIMES =  100;
+        private const int LOOP_TIMES = 100;
         private readonly static int MIN_NUMBER = Fixed32.MinValue.ToInt() / 2;
         private readonly static int MAX_NUMBER = Fixed32.MaxValue.ToInt() / 2;
 
@@ -42,28 +42,28 @@ namespace Test
                 var w = new Fixed32(k * d); // 任意
 
                 // NaN减去任何数，等于NaN
-                Assert(Fixed32.IsNaN(Fixed32.NaN - k), float.IsNaN(float.NaN - k));
-                Assert(Fixed32.IsNaN(Fixed32.NaN - w), float.IsNaN(float.NaN - k));
+                Assert(Fixed32.IsNaN(Fixed32.NaN - k), double.IsNaN(double.NaN - k));
+                Assert(Fixed32.IsNaN(Fixed32.NaN - w), double.IsNaN(double.NaN - k));
                 // 任何数减去NaN，等于NaN
-                Assert(Fixed32.IsNaN(k - Fixed32.NaN), float.IsNaN(k - float.NaN));
-                Assert(Fixed32.IsNaN(w - Fixed32.NaN), float.IsNaN(k - float.NaN));
+                Assert(Fixed32.IsNaN(k - Fixed32.NaN), double.IsNaN(k - double.NaN));
+                Assert(Fixed32.IsNaN(w - Fixed32.NaN), double.IsNaN(k - double.NaN));
                 // 正无穷减去正无穷，等于NaN
-                Assert(Fixed32.IsNaN(Fixed32.PositiveInfinity - Fixed32.PositiveInfinity), float.IsNaN(float.PositiveInfinity - float.PositiveInfinity));
+                Assert(Fixed32.IsNaN(Fixed32.PositiveInfinity - Fixed32.PositiveInfinity), double.IsNaN(double.PositiveInfinity - double.PositiveInfinity));
                 // 负无穷减去负无穷，等于NaN
-                Assert(Fixed32.IsNaN(Fixed32.NegativeInfinity - Fixed32.NegativeInfinity), float.IsNaN(float.NegativeInfinity - float.NegativeInfinity));
+                Assert(Fixed32.IsNaN(Fixed32.NegativeInfinity - Fixed32.NegativeInfinity), double.IsNaN(double.NegativeInfinity - double.NegativeInfinity));
 
                 // 负无穷减去任何数，等于负无穷
-                Assert(Fixed32.IsNegativeInfinity(Fixed32.NegativeInfinity - k), float.IsNegativeInfinity(float.NegativeInfinity - k));
-                Assert(Fixed32.IsNegativeInfinity(Fixed32.NegativeInfinity - w), float.IsNegativeInfinity(float.NegativeInfinity - k));
+                Assert(Fixed32.IsNegativeInfinity(Fixed32.NegativeInfinity - k), double.IsNegativeInfinity(double.NegativeInfinity - k));
+                Assert(Fixed32.IsNegativeInfinity(Fixed32.NegativeInfinity - w), double.IsNegativeInfinity(double.NegativeInfinity - k));
                 // 任何数减去负无穷，等于正无穷
-                Assert(Fixed32.IsPositiveInfinity(k - Fixed32.NegativeInfinity), float.IsPositiveInfinity(k - float.NegativeInfinity));
-                Assert(Fixed32.IsPositiveInfinity(w - Fixed32.NegativeInfinity), float.IsPositiveInfinity(k - float.NegativeInfinity));
+                Assert(Fixed32.IsPositiveInfinity(k - Fixed32.NegativeInfinity), double.IsPositiveInfinity(k - double.NegativeInfinity));
+                Assert(Fixed32.IsPositiveInfinity(w - Fixed32.NegativeInfinity), double.IsPositiveInfinity(k - double.NegativeInfinity));
                 // 正无穷减去任何数，等于正无穷
-                Assert(Fixed32.IsPositiveInfinity(Fixed32.PositiveInfinity - k), float.IsPositiveInfinity(float.PositiveInfinity - k));
-                Assert(Fixed32.IsPositiveInfinity(Fixed32.PositiveInfinity - w), float.IsPositiveInfinity(float.PositiveInfinity - k));
+                Assert(Fixed32.IsPositiveInfinity(Fixed32.PositiveInfinity - k), double.IsPositiveInfinity(double.PositiveInfinity - k));
+                Assert(Fixed32.IsPositiveInfinity(Fixed32.PositiveInfinity - w), double.IsPositiveInfinity(double.PositiveInfinity - k));
                 // 任何数减去正无穷，等于负无穷
-                Assert(Fixed32.IsNegativeInfinity(k - Fixed32.PositiveInfinity), float.IsNegativeInfinity(k - float.PositiveInfinity));
-                Assert(Fixed32.IsNegativeInfinity(w - Fixed32.PositiveInfinity), float.IsNegativeInfinity(k - float.PositiveInfinity));
+                Assert(Fixed32.IsNegativeInfinity(k - Fixed32.PositiveInfinity), double.IsNegativeInfinity(k - double.PositiveInfinity));
+                Assert(Fixed32.IsNegativeInfinity(w - Fixed32.PositiveInfinity), double.IsNegativeInfinity(k - double.PositiveInfinity));
 
                 // 最大值减去任何负数，等于正无穷
                 Assert(Fixed32.IsPositiveInfinity(Fixed32.MaxValue - n), true);
