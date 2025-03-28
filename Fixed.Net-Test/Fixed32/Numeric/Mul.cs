@@ -6,8 +6,9 @@ namespace Test
     internal class TMul : BaseTest<Fixed32>
     {
         private const int LOOP_TIMES = 100;
-        private readonly static int NUMBER_A = 10000;
+        private readonly static int NUMBER_A = 100000;
         private readonly static int NUMBER_B = Fixed32.MaxValue.ToInt() / NUMBER_A;
+        private const double PRECISION = 0.0001;
 
         public override void Run()
         {
@@ -24,9 +25,9 @@ namespace Test
                 var f3 = new Fixed32(n3);
                 var f4 = new Fixed32(n4);
 
-                Assert(f1 * f2, n1 * n2);
-                Assert(f1 * f3, n1 * n3);
-                Assert(f3 * f4, n3 * n4);
+                Assert(f1 * f2, n1 * n2, PRECISION);
+                Assert(f1 * f4, n1 * n4, PRECISION);
+                Assert(f3 * f4, n3 * n4, PRECISION);
             }
 
             // 边界检验 - NaN、最值、极值

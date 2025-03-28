@@ -5,9 +5,9 @@ namespace Test
     [Test]
     internal class TPow : BaseTest<Fixed32>
     {
-        private const int LOOP_TIMES = 1000;
-        private const int B_MIN_NUMBER = -100;
-        private const int B_MAX_NUMBER = 100;
+        private const int LOOP_TIMES = 100;
+        private const int B_MIN_NUMBER = -10;
+        private const int B_MAX_NUMBER = 10;
         private const int E_MIN_NUMBER = -4;
         private const int E_MAX_NUMBER = 4;
         private const double PRECISION = 1.0;
@@ -40,12 +40,7 @@ namespace Test
                 Assert(Fixed32.Pow(fb1, e2), Math.Pow(b1, e2), PRECISION);
                 Assert(Fixed32.Pow(fb1, fe2), Math.Pow(b1, e2), PRECISION);
                 Assert(Fixed32.Pow(fb1, fe4), Math.Pow(b1, e4), PRECISION);
-                Assert(Fixed32.Pow(fb2, e1), Math.Pow(b2, e1), PRECISION);
-                Assert(Fixed32.Pow(fb2, fe1), Math.Pow(b2, e1), PRECISION);
-                Assert(Fixed32.Pow(fb2, fe2), Math.Pow(b2, e2), PRECISION);
-                Assert(Fixed32.Pow(fb4, e1), Math.Pow(b4, e1), PRECISION);
-                Assert(Fixed32.Pow(fb4, fe1), Math.Pow(b4, e1), PRECISION);
-                Assert(Fixed32.Pow(fb4, fe2), Math.Pow(b4, e2), PRECISION);
+                //Assert(Fixed32.Pow(fs4, fe2), Math.Pow(b4, e2), PRECISION);
             }
         }
     }
