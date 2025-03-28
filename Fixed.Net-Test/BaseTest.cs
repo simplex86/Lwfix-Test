@@ -24,7 +24,7 @@ namespace Test
     /// </summary>
     internal abstract class BaseTest<T> : ITest where T : IFixed<T>
     {
-        private const float PRECISION = 0.0001f;
+        private const double PRECISION = 0.0001;
 
         /// <summary>
         /// 
@@ -47,29 +47,6 @@ namespace Test
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
-        protected void Assert(T a, float b)
-        {
-            var delta = Math.Abs(a.ToFloat() - b);
-            Debug.Assert(delta <= PRECISION);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <param name="precision"></param>
-        protected void Assert(T a, float b, float precision)
-        {
-            var delta = Math.Abs(a.ToFloat() - b);
-            Debug.Assert(delta <= precision);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
         protected void Assert(T a, double b)
         {
             var delta = Math.Abs(a.ToDouble() - b);
@@ -84,7 +61,7 @@ namespace Test
         /// <param name="precision"></param>
         protected void Assert(T a, double b, double precision)
         {
-            var delta = Math.Abs(a.ToFloat() - b);
+            var delta = Math.Abs(a.ToDouble() - b);
             Debug.Assert(delta <= precision);
         }
 

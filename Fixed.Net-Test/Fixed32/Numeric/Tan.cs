@@ -5,9 +5,9 @@ namespace Test
     //[Test]
     //internal class TTan : BaseTest<Fixed32>
     //{
-    //    private const int LOOP_TIMES =  1000;
+    //    private const int LOOP_TIMES = 1000;
     //    private const int MIN_NUMBER = -180;
-    //    private const int MAX_NUMBER =  180;
+    //    private const int MAX_NUMBER = 180;
     //    private const double PRECISION = 0.2;
 
     //    public override void Run()

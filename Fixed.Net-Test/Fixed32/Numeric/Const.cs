@@ -11,10 +11,10 @@ namespace Test
         private static readonly double Half = 0.5;
         private static readonly int MaxValue = int.MaxValue;
         private static readonly int MinValue = int.MinValue;
-        private static readonly double PI = MathF.PI;
-        private static readonly double E = MathF.E;
-        private static readonly double LN2 = MathF.Log(2);
-        private static readonly double LN10 = MathF.Log(10);
+        private static readonly double PI = Math.PI;
+        private static readonly double E = Math.E;
+        private static readonly double Ln2 = Math.Log(2);
+        private static readonly double Ln10 = Math.Log(10);
 
         public override void Run()
         {
@@ -28,8 +28,8 @@ namespace Test
             Assert(Fixed32.Half_PI, PI / 2);
             Assert(Fixed32.Two_PI, PI * 2);
             Assert(Fixed32.E, E);
-            Assert(Fixed32.LN2, LN2);
-            Assert(Fixed32.LN10, LN10);
+            Assert(Fixed32.Ln2, Ln2);
+            Assert(Fixed32.Ln10, Ln10);
         }
     }
 }
