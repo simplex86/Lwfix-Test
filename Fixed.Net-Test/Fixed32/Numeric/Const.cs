@@ -1,9 +1,9 @@
-﻿using Lwkit.Fixed;
+﻿using Xunit;
+using Lwkit.Fixed;
 
 namespace Test
 {
-    [Test]
-    internal class TConst : BaseTest<Fixed32>
+    public class TConst
     {
         private static readonly int Zero = 0;
         private static readonly int One = 1;
@@ -15,21 +15,23 @@ namespace Test
         private static readonly double E = Math.E;
         private static readonly double Ln2 = Math.Log(2);
         private static readonly double Ln10 = Math.Log(10);
+        private const int PRECISION = 6;
 
-        public override void Run()
+        [Fact]
+        public void Run()
         {
-            Assert(Fixed32.Zero, Zero);
-            Assert(Fixed32.One, One);
-            Assert(Fixed32.NegativeOne, NegativeOne);
-            Assert(Fixed32.Half, Half);
-            Assert(Fixed32.MaxValue, MaxValue);
-            Assert(Fixed32.MinValue, MinValue);
-            Assert(Fixed32.PI, PI);
-            Assert(Fixed32.Half_PI, PI / 2);
-            Assert(Fixed32.Two_PI, PI * 2);
-            Assert(Fixed32.E, E);
-            Assert(Fixed32.Ln2, Ln2);
-            Assert(Fixed32.Ln10, Ln10);
+            Assert.Equal(Zero,        Fixed32.Zero.ToInt());
+            Assert.Equal(One,         Fixed32.One.ToInt());
+            Assert.Equal(NegativeOne, Fixed32.NegativeOne.ToInt());
+            Assert.Equal(Half,        Fixed32.Half.ToDouble(),      PRECISION);
+            Assert.Equal(MaxValue,    Fixed32.MaxValue.ToInt());
+            Assert.Equal(MinValue,    Fixed32.MinValue.ToInt());
+            Assert.Equal(PI,          Fixed32.PI.ToDouble(),        PRECISION);
+            Assert.Equal(PI / 2,      Fixed32.Half_PI.ToDouble(),   PRECISION);
+            Assert.Equal(PI * 2,      Fixed32.Two_PI.ToDouble(),    PRECISION);
+            Assert.Equal(E,           Fixed32.E.ToDouble(),         PRECISION);
+            Assert.Equal(Ln2,         Fixed32.Ln2.ToDouble(),       PRECISION);
+            Assert.Equal(Ln10,        Fixed32.Ln10.ToDouble(),      PRECISION);
         }
     }
 }
