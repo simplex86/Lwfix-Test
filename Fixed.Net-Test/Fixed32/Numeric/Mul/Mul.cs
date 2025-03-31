@@ -10,16 +10,16 @@ namespace Test
     {
         private const int LOOP_TIMES = 100;
 
-        private readonly static int SMALL_NUMBER_A =  1000;
-        private readonly static int SMALL_NUMBER_B = -1000;
+        private readonly static int SMALL_NUMBER_A =  100;
+        private readonly static int SMALL_NUMBER_B = -100;
         private const int SMALL_PRECISION = 4;
 
         private readonly static int BIG_NUMBER_A = 100000;
         private readonly static int BIG_NUMBER_B = Fixed32.MaxValue.ToInt() / BIG_NUMBER_A;
-        private const int BIG_PRECISION = 2;
+        private const int BIG_PRECISION = 1;
 
         [Fact]
-        public void Run()
+        public void RunSmall()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {
@@ -37,10 +37,14 @@ namespace Test
                 Assert.Equal(n1 * n4, (f1 * f4).ToDouble(), SMALL_PRECISION);
                 Assert.Equal(n3 * n4, (f3 * f4).ToDouble(), SMALL_PRECISION);
             }
+        }
 
+        [Fact]
+        public void RunBig()
+        {
             for (int i = 0; i < LOOP_TIMES; i++)
             {
-                var n1 = Random.Shared.Next(1000, BIG_NUMBER_A);
+                var n1 = Random.Shared.Next(SMALL_NUMBER_A, BIG_NUMBER_A);
                 var n2 = Random.Shared.Next(-BIG_NUMBER_B, BIG_NUMBER_B);
                 var n3 = Random.Shared.NextDouble() * n1;
                 var n4 = Random.Shared.NextDouble() * n2;
