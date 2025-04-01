@@ -6,12 +6,10 @@ namespace Test
     /// <summary>
     /// 加法 - NaN
     /// </summary>
-    public class TAdd_NaN
+    public partial class TAdd
     {
-        private const int LOOP_TIMES = 100;
-
         [Fact]
-        public void Run()
+        public void NaN()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {

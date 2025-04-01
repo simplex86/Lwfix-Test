@@ -6,12 +6,10 @@ namespace Test
     /// <summary>
     /// 减法 - NaN
     /// </summary>
-    public class TSub_NaN
+    public partial class TSub
     {
-        private const int LOOP_TIMES = 100;
-
         [Fact]
-        public void Run()
+        public void NaN()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {

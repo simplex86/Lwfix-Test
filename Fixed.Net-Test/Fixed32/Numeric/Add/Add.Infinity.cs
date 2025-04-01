@@ -6,14 +6,10 @@ namespace Test
     /// <summary>
     /// 加法 - 极值
     /// </summary>
-    public class TAdd_Infinity
+    public partial class TAdd
     {
-        private const int LOOP_TIMES = 100;
-        private readonly static int MIN_NUMBER = Fixed32.MinValue.ToInt() / 2;
-        private readonly static int MAX_NUMBER = Fixed32.MaxValue.ToInt() / 2;
-
         [Fact]
-        public void Run()
+        public void Infinity()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {

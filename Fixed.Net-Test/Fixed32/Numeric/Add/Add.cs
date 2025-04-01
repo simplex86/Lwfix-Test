@@ -6,15 +6,15 @@ namespace Test
     /// <summary>
     /// 加法 - 常规，检验准确性
     /// </summary>
-    public class TAdd
+    public partial class TAdd
     {
         private const int LOOP_TIMES = 100;
         private readonly static int MIN_NUMBER = Fixed32.MinValue.ToInt() / 2;
         private readonly static int MAX_NUMBER = Fixed32.MaxValue.ToInt() / 2;
-        private const int PRECISION = 6;
+        private const double TOLERANCE = 10e-7;
 
         [Fact]
-        public void Run()
+        public void Normal()
         {
             // 常规计算（不会溢出），检验准确性
             for (int i = 0; i < LOOP_TIMES; i++)
@@ -30,8 +30,8 @@ namespace Test
                 var f4 = new Fixed32(n4);
 
                 Assert.Equal(n1 + n2, (f1 + f2).ToInt());
-                Assert.Equal(n1 + n3, (f1 + f3).ToDouble(), PRECISION);
-                Assert.Equal(n3 + n4, (f3 + f4).ToDouble(), PRECISION);
+                Assert.Equal(n1 + n3, (f1 + f3).ToDouble(), TOLERANCE);
+                Assert.Equal(n3 + n4, (f3 + f4).ToDouble(), TOLERANCE);
             }
         }
     }

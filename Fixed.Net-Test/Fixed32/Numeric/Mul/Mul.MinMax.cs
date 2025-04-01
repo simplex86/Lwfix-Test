@@ -3,15 +3,10 @@ using Lwkit.Fixed;
 
 namespace Test
 {
-    public class TMul_MinMax
+    public partial class TMul
     {
-        private const int LOOP_TIMES = 100;
-        private readonly static int NUMBER_A = 100000;
-        private readonly static int NUMBER_B = Fixed32.MaxValue.ToInt() / NUMBER_A;
-        private const int PRECISION = 5;
-
         [Fact]
-        public void Run()
+        public void MinMax()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {

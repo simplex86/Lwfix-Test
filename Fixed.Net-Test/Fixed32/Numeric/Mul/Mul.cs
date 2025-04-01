@@ -6,20 +6,20 @@ namespace Test
     /// <summary>
     /// 乘法 - 常规
     /// </summary>
-    public class TMul
+    public partial class TMul
     {
         private const int LOOP_TIMES = 100;
 
         private readonly static int SMALL_NUMBER_A =  100;
         private readonly static int SMALL_NUMBER_B = -100;
-        private const int SMALL_PRECISION = 4;
+        private const double SMALL_TOLERANCE = 10e-5;
 
         private readonly static int BIG_NUMBER_A = 100000;
         private readonly static int BIG_NUMBER_B = Fixed32.MaxValue.ToInt() / BIG_NUMBER_A;
-        private const int BIG_PRECISION = 1;
+        private const double BIG_TOLERANCE = 10e-2;
 
         [Fact]
-        public void RunSmall()
+        public void NormalSmall()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {
@@ -33,14 +33,14 @@ namespace Test
                 var f3 = new Fixed32(n3);
                 var f4 = new Fixed32(n4);
 
-                Assert.Equal(n1 * n2, f1 * f2);
-                Assert.Equal(n1 * n4, (f1 * f4).ToDouble(), SMALL_PRECISION);
-                Assert.Equal(n3 * n4, (f3 * f4).ToDouble(), SMALL_PRECISION);
+                Assert.Equal(n1 * n2, (f1 * f2).ToInt());
+                Assert.Equal(n1 * n4, (f1 * f4).ToDouble(), SMALL_TOLERANCE);
+                Assert.Equal(n3 * n4, (f3 * f4).ToDouble(), SMALL_TOLERANCE);
             }
         }
 
         [Fact]
-        public void RunBig()
+        public void NormalBig()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {
@@ -54,9 +54,9 @@ namespace Test
                 var f3 = new Fixed32(n3);
                 var f4 = new Fixed32(n4);
 
-                Assert.Equal(n1 * n2, f1 * f2);
-                Assert.Equal(n1 * n4, (f1 * f4).ToDouble(), BIG_PRECISION);
-                Assert.Equal(n3 * n4, (f3 * f4).ToDouble(), BIG_PRECISION);
+                Assert.Equal(n1 * n2, (f1 * f2).ToInt());
+                Assert.Equal(n1 * n4, (f1 * f4).ToDouble(), BIG_TOLERANCE);
+                Assert.Equal(n3 * n4, (f3 * f4).ToDouble(), BIG_TOLERANCE);
             }
         }
     }

@@ -18,7 +18,7 @@ namespace Test
         private const int PRECISION = 6;
 
         [Fact]
-        public void Run()
+        public void Normal()
         {
             Assert.Equal(Zero,        Fixed32.Zero.ToInt());
             Assert.Equal(One,         Fixed32.One.ToInt());

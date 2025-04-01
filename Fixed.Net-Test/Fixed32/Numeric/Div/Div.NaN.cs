@@ -6,12 +6,10 @@ namespace Test
     /// <summary>
     /// 除法 - 常规，检验准确性
     /// </summary>
-    public class TDiv_NaN
+    public partial class TDiv
     {
-        private const int LOOP_TIMES = 100;
-
         [Fact]
-        public void Run()
+        public void NaN()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {

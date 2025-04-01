@@ -6,12 +6,10 @@ namespace Test
     /// <summary>
     /// 除法 - 溢出
     /// </summary>
-    public class TDiv_Overflow
+    public partial class TDiv
     {
-        private const int LOOP_TIMES = 100;
-
         [Fact]
-        public void Run()
+        public void Overflow()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {

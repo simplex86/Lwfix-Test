@@ -6,12 +6,11 @@ namespace Test
     /// <summary>
     /// 减法 - 极值
     /// </summary>
-    public class TSub_Infinity
+    public partial class TSub
     {
-        private const int LOOP_TIMES = 100;
 
         [Fact]
-        public void Run()
+        public void Infinity()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {

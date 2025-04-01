@@ -9,7 +9,7 @@ namespace Test
         private const int PRECISION = 6;
 
         [Fact]
-        public void Run()
+        public void Normal()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {

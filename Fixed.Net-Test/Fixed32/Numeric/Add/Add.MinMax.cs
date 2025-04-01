@@ -6,12 +6,10 @@ namespace Test
     /// <summary>
     /// 加法 - 最值
     /// </summary>
-    public class TAdd_MinMax
+    public partial class TAdd
     {
-        private const int LOOP_TIMES = 100;
-
         [Fact]
-        public void Run()
+        public void MinMax()
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {
