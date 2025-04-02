@@ -15,10 +15,13 @@ namespace Test
         {
             for (int i = 0; i < LOOP_TIMES; i++)
             {
-                var n = Random.Shared.NextDouble() * Random.Shared.Next(NEGATIVE_MIN_NUMBER, POSITIVE_MAX_NUMBER);
-                var f = new Fixed32(n);
+                var n1 = Random.Shared.NextDouble() * Random.Shared.Next(1, POSITIVE_MAX_NUMBER);
+                var n2 = Random.Shared.NextDouble() * Random.Shared.Next(NEGATIVE_MIN_NUMBER, 0);
+                var f1 = new Fixed32(n1);
+                var f2 = new Fixed32(n2);
 
-                Assert.Equal(1.0 / n, Fixed32.Reciprocal(f).ToDouble(), TOLERANCE);
+                Assert.Equal(1.0 / n1, Fixed32.Reciprocal(f1).ToDouble(), TOLERANCE);
+                Assert.Equal(1.0 / n2, Fixed32.Reciprocal(f2).ToDouble(), TOLERANCE);
             }
         }
     }
