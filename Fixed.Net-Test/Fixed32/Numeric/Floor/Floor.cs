@@ -5,7 +5,7 @@ namespace Test
 {
     public partial class TFloor
     {
-        private const int LOOP_TIMES = 100;
+        private const int LOOP_TIMES = 10000;
         private const int NEGATIVE_MIN_NUMBER = -1000000;
         private const int POSITIVE_MAX_NUMBER = 1000000;
         private const double TOLERANCE = 10e-7;

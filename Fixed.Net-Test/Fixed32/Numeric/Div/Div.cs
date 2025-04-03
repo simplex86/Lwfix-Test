@@ -8,7 +8,7 @@ namespace Test
     /// </summary>
     public partial class TDiv
     {
-        private const int LOOP_TIMES = 100;
+        private const int LOOP_TIMES = 10000;
         private const int MIN_NUMBER = int.MinValue;
         private const int MAX_NUMBER = int.MaxValue;
         private const double TOLERANCE = 10e-7;

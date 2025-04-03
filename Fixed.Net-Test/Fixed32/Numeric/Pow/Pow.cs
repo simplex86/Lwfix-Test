@@ -5,7 +5,7 @@ namespace Test
 {
     public partial class TPow
     {
-        private const int LOOP_TIMES = 100;
+        private const int LOOP_TIMES = 10000;
         private const int B_MIN_NUMBER = -10;
         private const int B_MAX_NUMBER = 10;
         private const int E_MIN_NUMBER = -4;

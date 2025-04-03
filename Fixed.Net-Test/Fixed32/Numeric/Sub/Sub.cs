@@ -8,7 +8,7 @@ namespace Test
     /// </summary>
     public partial class TSub
     {
-        private const int LOOP_TIMES = 100;
+        private const int LOOP_TIMES = 10000;
 
         private readonly static int MIN_NUMBER = Fixed32.MinValue.ToInt() / 2;
         private readonly static int MAX_NUMBER = Fixed32.MaxValue.ToInt() / 2;

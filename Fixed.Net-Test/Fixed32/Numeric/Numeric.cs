@@ -5,8 +5,8 @@ namespace Test
 {
     public class TNumeric
     {
-        private const int LOOP_TIMES = 100;
-        private const int PRECISION = 6;
+        private const int LOOP_TIMES = 10000;
+        private const double TOLERANCE = 10e-6;
 
         [Fact]
         public void Normal()
@@ -21,12 +21,12 @@ namespace Test
                 // 单精度
                 var a2 = Random.Shared.NextSingle();
                 var f2 = new Fixed32(a2);
-                Assert.Equal(a2, f2.ToDouble(), PRECISION);
+                Assert.Equal(a2, f2.ToDouble(), TOLERANCE);
 
                 // 双精度
                 var a3 = Random.Shared.NextDouble();
                 var f3 = new Fixed32(a3);
-                Assert.Equal(a3, f3.ToDouble(), PRECISION);
+                Assert.Equal(a3, f3.ToDouble(), TOLERANCE);
             }
         }
     }

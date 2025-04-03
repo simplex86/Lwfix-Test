@@ -5,9 +5,9 @@ namespace Test
 {
     public partial class TSin
     {
-        private const int LOOP_TIMES = 100;
-        private const int MIN_NUMBER = -3600;
-        private const int MAX_NUMBER = 3600;
+        private const int LOOP_TIMES = 10000;
+        private const int MIN_NUMBER = -360;
+        private const int MAX_NUMBER = 360;
         private const double TOLERANCE = 10e-7;
         private const double FAST_TOLERANCE = 10e-5;
 

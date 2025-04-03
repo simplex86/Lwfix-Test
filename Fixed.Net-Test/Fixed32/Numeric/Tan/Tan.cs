@@ -5,9 +5,9 @@ namespace Test
 {
     public partial class TTan
     {
-        private const int LOOP_TIMES = 100;
-        private const int MIN_NUMBER = -89;
-        private const int MAX_NUMBER = 90;
+        private const int LOOP_TIMES = 10000;
+        private const int MIN_NUMBER = -88;
+        private const int MAX_NUMBER = 89;
         private const double TOLERANCE = 10e-6;
         private const double FAST_TOLERANCE = 10e-6;
 

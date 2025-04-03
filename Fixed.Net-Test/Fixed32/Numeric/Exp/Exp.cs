@@ -8,7 +8,7 @@ namespace Test
     /// </summary>
     public partial class TExp
     {
-        private const int LOOP_TIMES = 100;
+        private const int LOOP_TIMES = 10000;
 
         private const int SMALL_MIN_NUMBER = 1;
         private const int SMALL_MAX_NUMBER = 10;

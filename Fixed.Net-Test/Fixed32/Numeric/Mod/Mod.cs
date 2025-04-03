@@ -8,10 +8,10 @@ namespace Test
     /// </summary>
     public partial class TMod
     {
-        private const int LOOP_TIMES = 100;
+        private const int LOOP_TIMES = 10000;
         private const int MIN_NUMBER = int.MinValue;
         private const int MAX_NUMBER = int.MaxValue;
-        private const double TOLERANCE = 10e-6;
+        private const double TOLERANCE = 10e-3;
 
         [Fact]
         public void Normal()

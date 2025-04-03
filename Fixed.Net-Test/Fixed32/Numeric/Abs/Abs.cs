@@ -5,7 +5,7 @@ namespace Test
 {
     public partial class TAbs
     {
-        private const int LOOP_TIMES = 100;
+        private const int LOOP_TIMES = 10000;
         private const int NEGATIVE_MIN_NUMBER = int.MinValue;
         private const int POSITIVE_MAX_NUMBER = int.MaxValue;
         private const double TOLERANCE = 10e-7;

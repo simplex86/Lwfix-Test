@@ -8,15 +8,15 @@ namespace Test
     /// </summary>
     public partial class TMul
     {
-        private const int LOOP_TIMES = 100;
+        private const int LOOP_TIMES = 10000;
 
-        private readonly static int SMALL_NUMBER_A =  100;
-        private readonly static int SMALL_NUMBER_B = -100;
-        private const double SMALL_TOLERANCE = 10e-5;
+        private readonly static int SMALL_NUMBER_A =  1000;
+        private readonly static int SMALL_NUMBER_B = -1000;
+        private const double SMALL_TOLERANCE = 10e-7;
 
         private readonly static int BIG_NUMBER_A = 100000;
         private readonly static int BIG_NUMBER_B = Fixed32.MaxValue.ToInt() / BIG_NUMBER_A;
-        private const double BIG_TOLERANCE = 10e-2;
+        private const double BIG_TOLERANCE = 10e-5;
 
         [Fact]
         public void NormalSmall()
