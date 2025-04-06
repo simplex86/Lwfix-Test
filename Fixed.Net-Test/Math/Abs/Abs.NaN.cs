@@ -1,0 +1,15 @@
+﻿using Xunit;
+using Lwkit.Fixed;
+
+namespace Test.Mathematics
+{
+    public partial class TAbs
+    {
+        [Fact]
+        public void NaN()
+        {
+            Assert.True(double.IsNaN(Math.Abs(double.NaN)));
+            Assert.True(Fixed32.IsNaN(Fixed32.Abs(Fixed32.NaN)));
+        }
+    }
+}
