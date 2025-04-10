@@ -11,7 +11,7 @@ namespace Test.Numerics
         [Fact]
         public void Infinity()
         {
-            var amount = Random.Shared.NextDouble();
+            var amount = System.Random.Shared.NextDouble();
             var famount = new Fixed32(amount);
 
             Assert.True(double.IsNaN(double.Lerp(double.PositiveInfinity, double.NegativeInfinity, amount)));

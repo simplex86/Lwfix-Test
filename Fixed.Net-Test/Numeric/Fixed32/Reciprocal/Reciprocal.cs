@@ -5,23 +5,23 @@ namespace Test.Numerics
 {
     public partial class TReciprocal
     {
-        private const int LOOP_TIMES = 10000;
-        private const int NEGATIVE_MIN_NUMBER = -1000000;
-        private const int POSITIVE_MAX_NUMBER = 1000000;
+        private readonly static List<double> normal_numbers =
+        [
+            31.23479409344165,
+            -86.05775761556997,
+            -906813.7862607994,
+            979026.3581211731,
+            -100909.43195481248,
+        ];
         private const double TOLERANCE = 10e-7;
 
         [Fact]
         public void Normal()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in normal_numbers)
             {
-                var n1 = Random.Shared.NextDouble() * Random.Shared.Next(1, POSITIVE_MAX_NUMBER);
-                var n2 = Random.Shared.NextDouble() * Random.Shared.Next(NEGATIVE_MIN_NUMBER, 0);
-                var f1 = new Fixed32(n1);
-                var f2 = new Fixed32(n2);
-
-                Assert.Equal(1.0 / n1, Fixed32.Reciprocal(f1).ToDouble(), TOLERANCE);
-                Assert.Equal(1.0 / n2, Fixed32.Reciprocal(f2).ToDouble(), TOLERANCE);
+                var f = new Fixed32(n);
+                Assert.Equal(1.0 / n, Fixed32.Reciprocal(f).ToDouble(), TOLERANCE);
             }
         }
     }

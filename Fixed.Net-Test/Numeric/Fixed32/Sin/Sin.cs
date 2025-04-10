@@ -5,25 +5,30 @@ namespace Test.Numerics
 {
     public partial class TSin
     {
-        private const int LOOP_TIMES = 10000;
-        private const int MIN_NUMBER = -360;
-        private const int MAX_NUMBER = 360;
+        private readonly static List<double> normal_numbers =
+        [
+            Fixed32.Quarter_PI.ToDouble(),
+            Fixed32.Half_PI.ToDouble(),
+            Fixed32.PI.ToDouble(),
+            Fixed32.Two_PI.ToDouble(),
+            -13.784,
+            26.358,
+            -906.786,
+            979.358,
+        ];
         private const double TOLERANCE = 10e-7;
         private const double FAST_TOLERANCE = 10e-5;
 
         [Fact]
         public void Normal()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in normal_numbers)
             {
-                var n1 = Random.Shared.NextDouble() * Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
-                var f1 = new Fixed32(n1);
-                var r1 = (n1 / 180) * Math.PI;
-                var r2 = Fixed32.DegreeToRadian(f1);
+                var f = new Fixed32(n);
 
-                var s1 = Math.Sin(r1);
-                var s2 = Fixed32.Sin(r2);
-                var s3 = Fixed32.FastSin(r2);
+                var s1 = Math.Sin(n);
+                var s2 = Fixed32.Sin(f);
+                var s3 = Fixed32.FastSin(f);
 
                 Assert.Equal(s1, s2.ToDouble(), TOLERANCE);
                 Assert.Equal(s1, s3.ToDouble(), FAST_TOLERANCE);

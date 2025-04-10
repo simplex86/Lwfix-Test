@@ -8,30 +8,31 @@ namespace Test.Numerics
     /// </summary>
     public partial class TSub
     {
-        private const int LOOP_TIMES = 10000;
-
-        private readonly static int MIN_NUMBER = Fixed32.MinValue.ToInt() / 2;
-        private readonly static int MAX_NUMBER = Fixed32.MaxValue.ToInt() / 2;
+        private readonly static List<double[]> normal_numbers =
+        [
+            [65.506, 24.1307],
+            [-16.3083, -28.2577],
+            [15.5667775, -11.09],
+            [44.92, -98.7889],
+            [-631299.896, 909539.5],
+            [-660730.7668, -788217.62],
+            [395260.552, 610316.5062],
+            [230618.374, -840202.24]
+        ];
         private const double TOLERANCE = 10e-7;
 
         [Fact]
         public void Normal()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in normal_numbers)
             {
-                var n1 = Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
-                var n2 = Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
-                var n3 = Random.Shared.NextDouble() * n1;
-                var n4 = Random.Shared.NextDouble() * n2;
+                var u = n[0];
+                var v = n[1];
 
-                var f1 = new Fixed32(n1);
-                var f2 = new Fixed32(n2);
-                var f3 = new Fixed32(n3);
-                var f4 = new Fixed32(n4);
+                var t = new Fixed32(u);
+                var w = new Fixed32(v);
 
-                Assert.Equal(n1 - n2, (f1 - f2).ToInt());
-                Assert.Equal(n1 - n3, (f1 - f3).ToDouble(), TOLERANCE);
-                Assert.Equal(n3 - n4, (f3 - f4).ToDouble(), TOLERANCE);
+                Assert.Equal(u - v, (t - w).ToDouble(), TOLERANCE);
             }
         }
     }

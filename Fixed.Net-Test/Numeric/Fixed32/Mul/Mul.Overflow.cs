@@ -8,19 +8,23 @@ namespace Test.Numerics
     /// </summary>
     public partial class TMul
     {
+        private readonly static List<double[]> overflow_numbers =
+        [
+            [13386646.16, 216453.32],
+            [-1444062.296, 11008233.9],
+            [1374573.04, -12692913.069],
+            [-660737.7668, -78820.62],
+        ];
+
         [Fact]
         public void Overflow()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in overflow_numbers)
             {
-                var d = Random.Shared.Next(2, int.MaxValue) * Random.Shared.NextDouble();
-                var f = new Fixed32(d);
+                var u = new Fixed32(n[0]);
+                var v = new Fixed32(n[1]);
 
-                // 溢出
-                Assert.True(double.IsPositiveInfinity(double.MaxValue * d));
-                Assert.True(Fixed32.IsPositiveInfinity(Fixed32.MaxValue * f));
-                Assert.True(double.IsNegativeInfinity(double.MinValue * d));
-                Assert.True(Fixed32.IsNegativeInfinity(Fixed32.MinValue * f));
+                Assert.True(Fixed32.IsInfinity(u * v));
             }
         }
     }

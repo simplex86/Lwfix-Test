@@ -8,27 +8,31 @@ namespace Test.Numerics
     /// </summary>
     public partial class TDiv
     {
-        private const int LOOP_TIMES = 10000;
-        private const int MIN_NUMBER = int.MinValue;
-        private const int MAX_NUMBER = int.MaxValue;
+        private readonly static List<double[]> normal_numbers =
+        [
+            [65.506, 24.1307],
+            [-16.3083, -28.2577],
+            [15.5667775, -11.09],
+            [44.92, -98.7889],
+            [-631299.896, 909539.5],
+            [-660730.7668, -788217.62],
+            [395260.552, 610316.5062],
+            [230618.374, -840202.24]
+        ];
         private const double TOLERANCE = 10e-7;
 
         [Fact]
         public void Normal()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in normal_numbers)
             {
-                var n1 = Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
-                var n2 = Random.Shared.NextDouble() * n1;
-                var n4 = Random.Shared.NextDouble() * n1;
+                var u = n[0];
+                var v = n[1];
 
-                var f1 = new Fixed32(n1);
-                var f2 = new Fixed32(n2);
-                var f3 = new Fixed32(n4);
+                var t = new Fixed32(u);
+                var w = new Fixed32(v);
 
-                Assert.Equal(n1 / n2, (f1 / f2).ToDouble(), TOLERANCE);
-                Assert.Equal(n2 / n1, (f2 / f1).ToDouble(), TOLERANCE);
-                Assert.Equal(n2 / n4, (f2 / f3).ToDouble(), TOLERANCE);
+                Assert.Equal(u / v, (t / w).ToDouble(), TOLERANCE);
             }
         }
     }

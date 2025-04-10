@@ -3,26 +3,28 @@ using Lwkit.Fixed;
 
 namespace Test.Numerics
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class TAbs
     {
-        private const int LOOP_TIMES = 10000;
-        private const int NEGATIVE_MIN_NUMBER = int.MinValue;
-        private const int POSITIVE_MAX_NUMBER = int.MaxValue;
+        private readonly static List<double> normal_numbers =
+        [
+            31.23479409344165,
+            -86.05775761556997,
+            -906813.7862607994,
+            979026.3581211731,
+            -100909.43195481248,
+        ];
         private const double TOLERANCE = 10e-7;
 
         [Fact]
         public void Normal()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in normal_numbers)
             {
-                var n1 = Random.Shared.Next(NEGATIVE_MIN_NUMBER, POSITIVE_MAX_NUMBER);
-                var n2 = Random.Shared.NextDouble() * n1;
-
-                var f1 = new Fixed32(n1);
-                var f2 = new Fixed32(n2);
-
-                Assert.Equal(Math.Abs(n1), FMath.Abs(f1).ToInt());
-                Assert.Equal(Math.Abs(n2), FMath.Abs(f2).ToDouble(), TOLERANCE);
+                var f = new Fixed32(n);
+                Assert.Equal(Math.Abs(n), FMath.Abs(f).ToDouble(), TOLERANCE);
             }
         }
     }

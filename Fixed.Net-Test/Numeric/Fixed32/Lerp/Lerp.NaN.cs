@@ -8,9 +8,9 @@ namespace Test.Numerics
         [Fact]
         public void NaN()
         {
-            var n1 = Random.Shared.NextDouble() * Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
-            var n2 = Random.Shared.NextDouble() * Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
-            var n3 = Random.Shared.NextDouble();
+            var n1 = System.Random.Shared.NextDouble() * System.Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
+            var n2 = System.Random.Shared.NextDouble() * System.Random.Shared.Next(MIN_NUMBER, MAX_NUMBER);
+            var n3 = System.Random.Shared.NextDouble();
 
             var f1 = new Fixed32(n1);
             var f2 = new Fixed32(n2);

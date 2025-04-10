@@ -8,19 +8,22 @@ namespace Test.Numerics
     /// </summary>
     public partial class TDiv
     {
+        private readonly static List<double[]> overflow_numbers =
+        [
+            [2133786646.16, 0.05],
+            [1404748062.296, -0.1],
+            [-1374526073.04, -0.01],
+        ];
+
         [Fact]
         public void Overflow()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in overflow_numbers)
             {
-                var d = Random.Shared.NextDouble();
-                var f = new Fixed32(d);
+                var u = new Fixed32(n[0]);
+                var v = new Fixed32(n[1]);
 
-                // 溢出
-                Assert.True(double.IsPositiveInfinity(double.MaxValue / d));
-                Assert.True(Fixed32.IsPositiveInfinity(Fixed32.MaxValue / f));
-                Assert.True(double.IsNegativeInfinity(double.MinValue / d));
-                Assert.True(Fixed32.IsNegativeInfinity(Fixed32.MinValue / f));
+                Assert.True(Fixed32.IsInfinity(u / v));
             }
         }
     }

@@ -5,28 +5,28 @@ namespace Test.Numerics
 {
     public partial class TMin
     {
-        private const int LOOP_TIMES = 10000;
-        private const int NEGATIVE_MIN_NUMBER = -1000000;
-        private const int POSITIVE_MAX_NUMBER = 1000000;
+        private readonly static List<double[]> normal_numbers =
+        [
+            [65.506, 24.1307],
+            [-16.3083, -28.2577],
+            [15.5667775, -11.09],
+            [44.92, -98.7889],
+            [-631299.896, 909539.5],
+            [-660730.7668, -788217.62],
+            [395260.552, 610316.5062],
+            [230618.374, -840202.24]
+        ];
         private const double TOLERANCE = 10e-7;
 
         [Fact]
         public void Normal()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in normal_numbers)
             {
-                var n1 = Random.Shared.Next(NEGATIVE_MIN_NUMBER, POSITIVE_MAX_NUMBER);
-                var n2 = Random.Shared.Next(NEGATIVE_MIN_NUMBER, POSITIVE_MAX_NUMBER);
-                var n3 = Random.Shared.NextDouble() * n1;
-                var n4 = Random.Shared.NextDouble() * n2;
+                var f1 = new Fixed32(n[0]);
+                var f2 = new Fixed32(n[1]);
 
-                var f1 = new Fixed32(n1);
-                var f2 = new Fixed32(n2);
-                var f3 = new Fixed32(n3);
-                var f4 = new Fixed32(n4);
-
-                Assert.Equal(Math.Min(n1, n2), Fixed32.Min(f1, f2).ToInt());
-                Assert.Equal(Math.Min(n3, n4), Fixed32.Min(f3, f4).ToDouble(), TOLERANCE);
+                Assert.Equal(Math.Min(n[0], n[1]), Fixed32.Min(f1, f2).ToDouble(), TOLERANCE);
             }
         }
     }

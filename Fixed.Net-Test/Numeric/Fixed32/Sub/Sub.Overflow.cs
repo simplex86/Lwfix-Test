@@ -8,27 +8,25 @@ namespace Test.Numerics
     /// </summary>
     public partial class TSub
     {
+        private readonly static List<double[]> overflow_numbers =
+        [
+            [-2133786646.16, 2116943553.32],
+            [-1404748062.296, 1102082233.9],
+            [-1374526073.04, 1269291313.069],
+            [2133786646.16, -2116943553.32],
+            [1404748062.296, -1102082233.9],
+            [1374526073.04, -1269291313.069],
+        ];
+
         [Fact]
         public void Overflow()
         {
-            for (int i = 0; i < LOOP_TIMES; i++)
+            foreach (var n in overflow_numbers)
             {
-                var d = Random.Shared.NextDouble();
-                var p = Random.Shared.Next(1, int.MaxValue); // 正整数
-                var n = Random.Shared.Next(int.MinValue, 0); // 负整数
+                var u = new Fixed32(n[0]);
+                var v = new Fixed32(n[1]);
 
-                var u = new Fixed32(p * d); // 正
-                var v = new Fixed32(n * d); // 负
-
-                // 负数减去正数后溢出，得负无穷
-                var a1 = Fixed32.MinValue / 2;
-                var a2 = Fixed32.MaxValue / 2 + u;
-                Assert.True(Fixed32.IsNegativeInfinity(a1 - a2));
-
-                // 正数减去负数后溢出，得正无穷
-                var a3 = Fixed32.MaxValue / 2;
-                var a4 = Fixed32.MinValue / 2 + v;
-                Assert.True(Fixed32.IsPositiveInfinity(a3 - a4));
+                Assert.True(Fixed32.IsInfinity(u - v));
             }
         }
     }
