@@ -1,3 +1,3 @@
 # Lwfix-Test
 
-¶¨µãÊý¿â [Lwfix](https://github.com/simplex86/Lwfix) µÄ²âÊÔ¹¤³Ì
+å®šç‚¹æ•°åº“ [Lwfix](https://github.com/simplex86/Lwfix) çš„æµ‹è¯•å·¥ç¨‹
